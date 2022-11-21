@@ -11,7 +11,7 @@ import retrofit2.Response
 object MainActivityRepository {
 
 
-    val serviceSetterGetter = MutableLiveData<ListUsers>()
+    private val serviceSetterGetter = MutableLiveData<ListUsers>()
 
     fun getServicesApiCall(): MutableLiveData<ListUsers> {
 
@@ -19,20 +19,20 @@ object MainActivityRepository {
 
         call.enqueue(object: Callback<ListUsers> {
             override fun onFailure(call: Call<ListUsers>, t: Throwable) {
-                Log.v("TAG  : fail", t.message.toString())
+                Log.e("TAG  : fail", t.message.toString())
             }
 
             override fun onResponse(
                 call: Call<ListUsers>,
                 response: Response<ListUsers>
             ) {
-                Log.v("Tag : work", response.body().toString())
+                Log.d("Tag : work", response.body().toString())
 
                 val data = response.body()
 
-                val msg = data!!
+              //  val msg = data!!
 
-                serviceSetterGetter.value = ListUsers(msg)
+              //  serviceSetterGetter.value = ListUsers(msg)
             }
         })
 

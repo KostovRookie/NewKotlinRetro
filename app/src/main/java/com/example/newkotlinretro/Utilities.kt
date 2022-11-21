@@ -1,4 +1,4 @@
-package com.example.newkotlinretro.retrofit
+package com.example.newkotlinretro
 
 import kotlinx.serialization.json.Json
 

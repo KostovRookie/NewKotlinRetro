@@ -3,7 +3,7 @@ package com.example.newkotlinretro.model
 import kotlinx.serialization.*
 
 @Serializable
-data class Data(
+data class ItemsData(
     @SerialName("login")
     var login: String,
     @SerialName("type")
@@ -11,7 +11,7 @@ data class Data(
     @SerialName("avatar_url")
     var avatar: String,
     @SerialName("node_id")
-    var id: Int,
+    var id: String,
     @SerialName("url")
     var url: String
 )

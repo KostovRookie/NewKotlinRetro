@@ -1,11 +1,13 @@
 package com.example.newkotlinretro.retrofit
 
+import com.example.newkotlinretro.jsonDefaultInstance
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+
 
 object RetrofitSettings {
     private val contentType = "application/json".toMediaType()
@@ -26,7 +28,7 @@ object RetrofitSettings {
             .baseUrl("https://api.github.com")
 
             .addConverterFactory(
-                Json.asConverterFactory(contentType))    // Strict always false and still "Unexpected JSON token"
+                jsonDefaultInstance.asConverterFactory(contentType))    // Strict always false and still "Unexpected JSON token"
 
             .client(mOkHttpClient)
 

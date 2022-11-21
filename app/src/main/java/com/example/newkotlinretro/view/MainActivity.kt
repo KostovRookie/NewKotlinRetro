@@ -6,13 +6,15 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
 import com.example.newkotlinretro.R
-import com.example.newkotlinretro.retrofit.jsonDefaultInstance
-import com.example.newkotlinretro.model.Data
+import com.example.newkotlinretro.jsonDefaultInstance
+import com.example.newkotlinretro.model.ItemsData
 import com.example.newkotlinretro.viewModel.MainActivityViewModel
+import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 
 
 class MainActivity : AppCompatActivity() {
+
 
     private lateinit var context: Context
 
@@ -31,19 +33,23 @@ class MainActivity : AppCompatActivity() {
 
             mainActivityViewModel.getUser()!!.observe(this) {
 
-                val data = Data(
-                    login = "test",
-                    type = "Type",
-                    id = 1,
-                    avatar = "testAvatarUrl",
-                    url = "Doe"
-                )
-                val string = jsonDefaultInstance.encodeToString(data)
+//                val itemsData = ItemsData(
+//                    login = "test",
+//                    type = "Type",
+//                    id = 1,
+//                    avatar = "testAvatarUrl",
+//                    url = "Doe"
+//                )
+//                val string = jsonDefaultInstance.encodeToString(itemsData)
 
-                print(string)    // testing only
+//                print(string)    // testing only
+
+//                val obj = jsonDefaultInstance.decodeFromString<ItemsData>(string)
+//                println(obj)
 
 
             }
+           // val textView = findViewById<TextView>(R.id.textView)
 
         }
 
